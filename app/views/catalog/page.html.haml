@@ -4,7 +4,7 @@
   .date
     %select#tags_filter{:onchange => "filter_by(this.value)"}
       %option{:value => "", :disabled => "disabled", :selected => "selected"}= "Tags"
-      -tags_hash do |tag|
+      -tags_hash.each do |tag|
         %option{:value => tag}= tag
   .p_filter
     %p="Trier par"

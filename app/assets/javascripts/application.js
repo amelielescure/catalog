@@ -22,10 +22,10 @@ $(".flexslider").flexslider({
   });
 
 function filter_by(tags){
-
   $.ajax({
-    url: "/filter_projects"+params,
-    cache: false,
+    type: 'post',
+    url: "/filter_products",
+    data:{tags: tags},
     success: function(html){
       $("#content_list").html(html);
       $(".loader").hide();
@@ -37,7 +37,9 @@ function sort_by(type){
   params = "?type="+type;
 
   $.ajax({
-    url: "/filter_products"+params,
+    type: 'post',
+    url: "/filter_products",
+    data:{type: type},
     success: function(html){
       $("#content_list").html(html);
       $(".loader").hide();
