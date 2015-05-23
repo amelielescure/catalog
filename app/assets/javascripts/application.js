@@ -13,7 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.flexslider
 //= require_tree .
+
+$(".flexslider").flexslider({
+    animation: 'fade',
+    controlsContainer: '.flexslider'
+  });
 
 function filter_by(tags){
 
