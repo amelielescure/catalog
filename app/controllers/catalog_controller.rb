@@ -13,7 +13,8 @@ class CatalogController < ApplicationController
   	if params[:type].present?
   		@products = Product.order(params[:type]).paginate(:page => params[:page], :per_page => 3)
     elsif params[:tags].present?
-      @products = Product.where("tags like ?","%#{params[:tag]}%").paginate(:page => params[:page], :per_page => 3)
+      puts "yooooo"
+      @products = Product.where("tags like ?","%#{params[:tags]}%").paginate(:page => params[:page], :per_page => 3)
     end
     render :partial => "list_products"    
   end
