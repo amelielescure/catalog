@@ -1,0 +1,26 @@
+!!!
+%html{"prefix" => "og: http://ogp.me/ns#", "xmlns:fb" => "http://www.facebook.com/2008/fbml"}
+  %head
+    %meta{:charset =>'utf-8'}
+    %title="Admin Catalog"
+    = stylesheet_link_tag "bootstrap.min", media: "all"
+    = csrf_meta_tags
+    
+  %body
+
+    %header.navbar.navbar-static-top{:role => "banner"}
+      .container
+        %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+          .container-fluid
+            .navbar-header
+              %a.navbar-brand{:href => "/admin"}="Gestion Site"
+            .collapse.navbar-collapse
+              %ul.nav.navbar-nav
+                %li{:class => "#{'active' if request.path.include?('products')}"}
+                  %a{:href => "/admin/products"}= "Products"
+
+    .container
+      .content      
+        = yield
+
+      = javascript_include_tag "application", "data-turbolinks-track" => true 

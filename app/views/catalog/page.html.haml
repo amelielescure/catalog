@@ -1,0 +1,18 @@
+.filter
+  .p_filter
+    %p="Filtrer par"
+  .date
+    %select#tags_filter{:onchange => "filter_by(this.value)"}
+      %option{:value => "", :disabled => "disabled", :selected => "selected"}= "Tags"
+      -tags_hash do |tag|
+        %option{:value => tag}= tag
+  .p_filter
+    %p="Trier par"
+  .types
+    %select#sortby_filter{:onchange => "sort_by(this.value)"}
+      %option{:value => "", :disabled => "disabled", :selected => "selected"}= "Sélectionner"
+      %option{:value => "price"}= "Prix"
+      %option{:value => "weight"}= "Poids"
+
+#content_list
+  =render :partial => "list_products", :locals => {products: @products}

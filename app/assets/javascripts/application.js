@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function filter_by(tags){
+
+  $.ajax({
+    url: "/filter_projects"+params,
+    cache: false,
+    success: function(html){
+      $("#content_list").html(html);
+      $(".loader").hide();
+    }
+  });
+}
+
+function sort_by(type){
+  params = "?type="+type;
+
+  $.ajax({
+    url: "/filter_products"+params,
+    success: function(html){
+      $("#content_list").html(html);
+      $(".loader").hide();
+    }
+  });
+}

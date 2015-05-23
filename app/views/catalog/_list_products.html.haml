@@ -1,0 +1,21 @@
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Nom
+      %th Description
+      %th Prix
+      %th Poix
+      %th Image
+      %th Tag
+      %th
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product.name
+        %td= product.description
+        %td= product.price
+        %td= product.weight
+        %td= product.tags
+        %td= image_tag product.picture1.url(:thumb)
+        %td= link_to 'Voir', "/product/#{product.id}"
+#pagination=will_paginate(@products)

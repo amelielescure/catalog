@@ -1,0 +1,30 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @product.name
+%p
+  %strong Description:
+  = @product.description
+%p
+  %strong Price:
+  = @product.price
+%p
+  %strong Weight:
+  = @product.weight
+
+.slideshow
+    .flex-container
+      .flexslider
+        %ul.slides
+          -if @product.picture1.exists?
+            %li
+              %a{:rel => "group1", :class => "fancybox", :href => @product.picture1.url}
+                =image_tag @product.picture1.url
+          -if @product.picture2.exists?
+            %li
+              %a{:rel => "group1", :class => "fancybox", :href => @product.picture2.url}
+                =image_tag @product.picture2.url
+          -if @product.picture3.exists?
+            %li
+              %a{:rel => "group1", :class => "fancybox", :href => @product.picture3.url}
+                =image_tag @product.picture3.url
