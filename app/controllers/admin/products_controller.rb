@@ -25,7 +25,7 @@ class Admin::ProductsController < ApplicationController
   # POST /products.json
   def create
     if params[:product][:tags].present?
-      params[:product][:tags] = params[:product][:tags].join(",")
+      params[:product][:tags] = params[:product][:tags].join(" , ")
     end
     @product = Product.new(product_params)
 
