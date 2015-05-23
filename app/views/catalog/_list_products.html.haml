@@ -22,4 +22,4 @@
             %td= product.tags
             %td= image_tag product.picture1.url(:thumb)
             %td= link_to 'Voir', "/product/#{product.id}"
-    #pagination=will_paginate(@products)
+    #pagination=will_paginate(@products, :params => { :controller => "catalog", :action => "page" })
